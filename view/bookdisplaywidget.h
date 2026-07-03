@@ -6,6 +6,8 @@
 #include<QMessageBox>
 
 #include"service/bookservice.h"
+#include"returndisplay.h"
+#include"borrow.h"
 
 namespace Ui {
 class BookDisplayWidget;
@@ -32,6 +34,10 @@ private slots:
 
     void on_pageSizeCombo_currentIndexChanged(int index);
 
+    void on_borrowBtn_clicked();
+
+    void on_returnBtn_clicked();
+
 private:
     // 核心方法
     void loadBooks();
@@ -56,8 +62,14 @@ private:
 private:
     Ui::BookDisplayWidget *ui;
 
+    Borrow* m_borrow;
+    ReturnDisplay* m_return;
+
     QScopedPointer<BookService> m_bookService;
     QScopedPointer<QStandardItemModel> m_tableModel;
+
+
+
 
     QList<Book> m_allBooks;          // 从数据库查询到的原始数据
     QList<Book> m_filteredBooks;     // 经过分类过滤后的数据

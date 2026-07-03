@@ -363,3 +363,17 @@ void BookDisplayWidget::on_pageSizeCombo_currentIndexChanged(int index)
     }
 }
 
+
+void BookDisplayWidget::on_borrowBtn_clicked()
+{
+    Borrow* borrow = new Borrow(this);
+    borrow->setAttribute(Qt::WA_DeleteOnClose);
+    borrow->show();
+}
+
+void BookDisplayWidget::on_returnBtn_clicked()
+{
+    ReturnDisplay* returnDlg = new ReturnDisplay(this);
+    returnDlg->setAttribute(Qt::WA_DeleteOnClose);
+    returnDlg->show();
+}
